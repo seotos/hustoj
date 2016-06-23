@@ -1,0 +1,61 @@
+*. ubuntu 14.04 기준 *
+
+1. 패키지 업데이트 정보 확인
+  sudo apt-get update
+2. 웹서버 설치
+  가. sudo apt-get install apache2
+  나. 설치할 것인지 물어보면 y를 입력
+  다. 정상적으로 설치되었는지 확인한다.
+    >> 웹브라우저를 실행하여 서버에실행하면 http://localhost/ 입력하고 다른 컴에서는 서버 ip주소를 입력한다.
+  라. Apache2 Ubuntu Default Page 가 화면에 나오면 정상적으로 설치도니 것이다.
+3. DB관리시스템 설치
+  가. sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql
+    >> mysql-server : mysql 설치
+    >> libapache2-mod-auth-mysql  : mysql 인증을 위한 모듈
+    >> php5-mysql : mysql과 php를 연동하기 위한 모듈
+  나. 설치과정에 MySQL "root user" password setting 부분에 입력
+    >> 패스워드를 설정한다. 우분투 계정과 별개의 패스워드를 설정한다.
+  다. sudo mysql_secure_installation
+    >> MySQL 설치하고 root 비밀번호를 설정하고, 익명 계정/test DB를 삭제하는 등의 조치가 필요하죠? 
+    >> MySQL 에 기본 포함된 mysql_secure_installation 란 스크립트가 이런 작업을 한번에 처리할 수 있도록 해주고 있네요.   
+    >> 아래처럼 각각의 작업들을 한번에 처리할 수 있게 됩니다. 
+      >> Enter current password for root(enter fo none): 나에서 설정한mysql root 패스워드를 입력하자.
+      >> Change the root password? [Y/n] n
+      >> Remove anonymous users? [Y/n] y
+      >> Disallow root login remotely? [Y/n] n
+      >> Remove test database and access to it? [Y/n] y
+      >> Reload privilege tables now? [Y/n] y
+  라. sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
+    >> php5 관련 모듈들을 설치한다.
+4. hustoj 설치
+  가. sudo apt-get install subversion
+    >> hustoj의 버전관리를 위한 설치
+  나. sudo svn co https://github.com/zhblue/hustoj/trunk/trunk/install hustoj
+    >> 설치파일 복사
+      >> A    hustoj/README
+      >> A    hustoj/db.sql
+      >> A    hustoj/install-interactive.sh
+      >> A    hustoj/install.sh
+      >> A    hustoj/java0.policy
+      >> A    hustoj/judge.conf
+      >> A    hustoj/judged
+      >> A    hustoj/multiOJ.sh
+      >>  Checked out revision 2493.
+  다. hustoj 폴더 내용 확인
+      >> db.sql : 데이터 베이스 기본 정의
+        >> db name : jol
+        >> table : compileinfo, contest, contest_problem, loginlog, mail, news, privilege, problem,
+                   reply, sim, solution, source_code, topic, users, online, runtimeinfo, custominput
+      >> install-interactive.sh :설치를 위한 명령 묶음
+        >> sudo vi install-interactive.sh
+        >> 파일을 열어서 약간의 수정을 해 주자
+        >> 30번 줄에 
+        >> 
+        
+      >> install.sh
+      >> java0.policy
+      >> judge.conf
+      >> judged
+      >> multiOJ.sh
+      >> README
+    
