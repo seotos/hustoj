@@ -47,10 +47,11 @@
         >> table : compileinfo, contest, contest_problem, loginlog, mail, news, privilege, problem,
                    reply, sim, solution, source_code, topic, users, online, runtimeinfo, custominput
       >> install-interactive.sh :설치를 위한 명령 묶음
-        >> sudo vi install-interactive.sh
-        >> 파일을 열어서 약간의 수정을 해 주자
-        >> 30번 줄에 
-        >> 
+        - 설치모듈
+          >> flex : flex는 《fast lexical analyzer generator》의 줄임말로 lex의 기능을 개선한 자유 소프트웨어이다. 
+                    주로 bison과 쌍을 이루어 구문 분석기를 만드는 데 사용된다. 
+                    flex를 이용하면 C로 구문 문석 코드를 만들 수 있다.
+                    코드를 쭉쭉 scan하면서 syntax구문의 오류를 확인하는 analyzer가 lex
         
       >> install.sh
       >> java0.policy
